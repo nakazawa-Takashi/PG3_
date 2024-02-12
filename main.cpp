@@ -1,6 +1,48 @@
 #include <stdio.h>
+#include <list>
 
 int main() {
-	printf("BOM„Å™„Åó");
+
+	std::list<const char*> yamanotaLine{"Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisugani", "Nippori","Tabata",
+		"Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Shin-Okubo", "Shinjuku", "Yoyogi", "Harajuku",
+		"Shibuya","Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa","Tamachi", "Hamamatsucho", "Shimbashi", "Yurakucho"};
+
+	printf("[1970îN]");
+	printf("\n");
+	for (std::list<const char*>::iterator itr = yamanotaLine.begin(); itr != yamanotaLine.end(); itr++) {
+		printf(*itr);
+		printf("\n");
+	}
+
+	printf("\n");
+
+	printf("[2019îN]\n");
+	printf("\n");
+	for (std::list<const char*>::iterator itr = yamanotaLine.begin(); itr != yamanotaLine.end(); itr++) {
+		if (*itr == "Tabata") {
+			itr = yamanotaLine.insert(itr, "Nishi-Nippori");
+			break;
+		}
+	}
+	for (std::list<const char*>::iterator itr = yamanotaLine.begin(); itr != yamanotaLine.end(); itr++) {
+		printf(*itr);
+		printf("\n");
+	}
+
+	printf("\n");
+
+	printf("[2022îN]\n");
+	for (std::list<const char*>::iterator itr = yamanotaLine.begin(); itr != yamanotaLine.end(); itr++) {
+		if (*itr == "Tamachi") {
+			itr = yamanotaLine.insert(itr, "Takanawa-Gateway");
+			break;
+		}
+	}
+	for (std::list<const char*>::iterator itr = yamanotaLine.begin(); itr != yamanotaLine.end(); itr++) {
+		printf(*itr);
+		printf("\n");
+	}
+	printf("\n");
+
 	return 0;
 }
